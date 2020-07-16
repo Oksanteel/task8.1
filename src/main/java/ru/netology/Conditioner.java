@@ -2,12 +2,13 @@ package ru.netology;
 
 public class Conditioner {
     private String name;
-    private int maxTemperature;
-    private int minTemperature;
-    private int currentTemperature;
+    private int maxTemperature = 25;
+    private int minTemperature = 10;
+    private int currentTemperature = 15;
     private boolean on;
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
@@ -36,23 +37,24 @@ public class Conditioner {
     }
 
     public void setCurrentTemperature(int currentTemperature) {
-        if (currentTemperature > maxTemperature) {
-            return;
-        }
-        if (currentTemperature < minTemperature) {
-            return;
-        }
-        // здесь уверены, что все проверки прошли
         this.currentTemperature = currentTemperature;
     }
 
-//    public void setCurrentTemperature(int currentTemperature) {
-//        if (currentTemperature <= maxTemperature) {
-//            if (currentTemperature >= minTemperature) {
-//                this.currentTemperature = currentTemperature;
-//            }
-//        }
-//    }
+    public void increaseCurrentTemperature() {
+        if (currentTemperature < maxTemperature) {
+            currentTemperature++;
+        } else {
+            return;
+        }
+    }
+
+    public void decreaseCurrentTemperature() {
+        if (currentTemperature > minTemperature) {
+            currentTemperature--;
+        } else {
+            return;
+        }
+    }
 
     public boolean isOn() {
         return on;
